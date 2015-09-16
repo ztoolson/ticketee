@@ -5,6 +5,7 @@ Technology
 ----------
 Rails 4.2.3
 Ruby 2.2.2
+If using ubuntu, `build-essential, libxslt1-dev` packages are required
 
 What the application does
 -------------------------
