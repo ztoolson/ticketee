@@ -12,11 +12,23 @@ class TicketsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def new
     @ticket = @project.tickets.build
   end
 
   def show
+  end
+
+  def update
+    if @ticket.update(ticket_params)
+      redirect_to [@project, @ticket], notice: "Ticket has been updated"
+    else
+      flash[:alert] = "Ticket has not been updated"
+      render "edit"
+    end
   end
 
   private
