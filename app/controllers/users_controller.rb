@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You have signed up successfully."
       redirect_to projects_path
     else
+      flash[:error] = "We couldn't sign you up at this time. Sorry! Please try again later."
       render :new
     end
   end
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Profile has been updated."
       redirect_to projects_path
     else
-      flash[:notice] = "User profile could not be updated."
+      flash[:error] = "User profile could not be updated."
       render :edit
     end
   end
