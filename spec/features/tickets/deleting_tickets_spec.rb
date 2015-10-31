@@ -2,9 +2,12 @@ require 'spec_helper'
 
 feature 'Deleting tickets' do
   let!(:project) { FactoryGirl.create(:project) }
-  let!(:ticket) { FactoryGirl.create(:ticket, project: project) }
+  let!(:ticket) { FactoryGirl.create(:ticket, project: project, user: user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   before do
+    sign_in_as!(user)
+
     visit "/"
     click_link project.name
     click_link ticket.title
