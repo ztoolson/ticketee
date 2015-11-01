@@ -1,19 +1,28 @@
 require 'spec_helper'
 
 feature "Viewing tickets" do
+  let!(:textmate_2) { FactoryGirl.create(:project, name: "TextMate 2")}
+  let!(:internet_explorer) { FactoryGirl.create(:project, name: "Internet Explorer") }
+  let!(:ticket1) {
+    FactoryGirl.create(
+      :ticket,
+      project: textmate_2,
+      title: "Make it shiny!",
+      description: "Gradients! Starbursts! Oh my!",
+      user: user)
+  }
+  let!(:ticket2) {
+    FactoryGirl.create(
+      :ticket,
+      project: internet_explorer,
+      title: "Standards Compliance",
+      description: "Isn't a joke.",
+      user: user)
+  }
+  let!(:user) { FactoryGirl.create(:user) }
+
   before do
-    textmate_2 = FactoryGirl.create(:project, name: "TextMate 2")
-    FactoryGirl.create(:ticket,
-                       project: textmate_2,
-                       title: "Make it shiny!",
-                       description: "Gradients! Starbursts! Oh my!")
-
-    internet_explorer = FactoryGirl.create(:project, name: "Internet Explorer")
-    FactoryGirl.create(:ticket,
-                       project: internet_explorer,
-                       title: "Standards Compliance",
-                       description: "Isn't a joke.")
-
+    sign_in_as!(user)
     visit "/"
   end
 

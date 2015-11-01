@@ -12,7 +12,7 @@ gem 'turbolinks' # Turbolinks makes following links in your web application fast
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'sdoc', '~> 0.4.0', group: :doc # bundle exec rake doc:rails generates the API under doc/api.
 
-# gem 'bcrypt', '~> 3.1.7' # Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7' # Use ActiveModel has_secure_password
 # gem 'unicorn' # Use Unicorn as the app server
 
 # gem 'capistrano-rails', group: :development # Use Capistrano for deployment
